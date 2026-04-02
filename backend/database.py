@@ -1,12 +1,12 @@
-# database.py
-
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
 
-# URL configurada con el Session Pooler y tu contraseña
-# Nota: El usuario de Supabase para el pooler suele incluir el ID del proyecto
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres.svrmvpzfsakrdwcftfkw:Lacobaya117@aws-1-us-east-2.pooler.supabase.com:5432/postgres"
+load_dotenv()
+
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
