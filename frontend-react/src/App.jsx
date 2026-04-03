@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://contactos-backend-m759.onrender.com";
 
 function App() {
   const [activeTab, setActiveTab] = useState("personas");
